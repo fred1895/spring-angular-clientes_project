@@ -14,7 +14,7 @@ public class ClientesApplication {
     @Bean
     public CommandLineRunner run(@Autowired ClienteRepository repository) {
         return args -> {
-            Cliente cliente = Cliente.builder().cpf("12345678901").nome("Fred").build();
+            Cliente cliente = Cliente.builder().cpf("86368332050").nome("Fred").build();
             repository.save(cliente);
         };
     }
