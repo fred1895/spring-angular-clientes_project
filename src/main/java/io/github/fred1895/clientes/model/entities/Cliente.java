@@ -1,4 +1,4 @@
-package io.github.fred1895.clientes.entities;
+package io.github.fred1895.clientes.model.entities;
 
 import lombok.Data;
 
