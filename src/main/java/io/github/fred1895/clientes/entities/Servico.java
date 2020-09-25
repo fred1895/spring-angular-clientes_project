@@ -3,21 +3,23 @@ package io.github.fred1895.clientes.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 @Entity
 @Data
-public class Cllente {
+public class Servico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 150)
-    private String nome;
+    private String descricao;
 
-    @Column(nullable = false, length = 11)
-    private String cpf;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 
-    @Column()
-    private LocalDate dataCadastro;
+    @Column
+    private BigDecimal valor;
+
 }
