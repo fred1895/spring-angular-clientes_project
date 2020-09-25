@@ -31,4 +31,10 @@ public class ClienteController {
         service.deletar(id);
     }
 
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
+        service.atualizar(id, cliente);
+    }
+
 }

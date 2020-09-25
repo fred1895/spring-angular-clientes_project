@@ -31,4 +31,15 @@ public class ClienteService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    public void atualizar(Long id, Cliente clienteAtualizado) {
+        repository.findById(id)
+                .map(cliente -> {
+                    cliente.setCpf(clienteAtualizado.getCpf());
+                    cliente.setNome(clienteAtualizado.getNome());
+                    return repository.save(cliente);
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+    }
+
 }
