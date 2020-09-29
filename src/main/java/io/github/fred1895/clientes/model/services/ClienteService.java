@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
 
@@ -16,6 +18,10 @@ public class ClienteService {
 
     public Cliente salvar(Cliente cliente) {
         return repository.save(cliente);
+    }
+
+    public List<Cliente> obterTodos() {
+        return repository.findAll();
     }
 
     public Cliente acharPorId(Long id) {

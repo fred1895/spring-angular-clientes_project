@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")
+@CrossOrigin("http://localhost:4200")
 public class ClienteResource {
 
     @Autowired
@@ -20,6 +22,11 @@ public class ClienteResource {
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente salvar(@RequestBody @Valid Cliente cliente) {
         return service.salvar(cliente);
+    }
+
+    @GetMapping
+    public List<Cliente> obterTodos() {
+        return service.obterTodos();
     }
 
     @GetMapping("{id}")
