@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 public class ServicoPrestadoService {
@@ -46,5 +47,9 @@ public class ServicoPrestadoService {
 
         preco = preco.replace(".", "").replace(",", ".");
         return new BigDecimal(preco);
+    }
+
+    public List<ServicoPrestado> pesquisar(String nome, Integer mes) {
+        return repository.findByNomeClienteAndMes("%" + nome + "%", mes);
     }
 }
