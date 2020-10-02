@@ -1,5 +1,7 @@
 package io.github.fred1895.clientes.config;
 
+import io.github.fred1895.clientes.services.UsuarioDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,12 +14,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private UsuarioDetailService detailService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("fred")
-                .password("123")
-                .roles("USER");
+        auth.userDetailsService(detailService)
+                .passwordEncoder(passwordEncoder());
     }
 
     @Bean
