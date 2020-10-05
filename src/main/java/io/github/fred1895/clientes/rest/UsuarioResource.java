@@ -24,7 +24,7 @@ public class UsuarioResource {
             service.salvar(usuario);
 
         } catch (UsuarioCadastradoException e) {
-            throw new ResponseStatusException( HttpStatus.BAD_REQUEST, e.getMessage()); 
+            throw new ResponseStatusException( HttpStatus.BAD_REQUEST, e.getMessage());
         }
 
     }

@@ -16,9 +16,9 @@ public class Usuario {
     private Long id;
 
     @Column(unique = true)
-    @NotEmpty(message = "Campo login é obrigstório")
+    @NotEmpty(message = "Campo login é obrigatório")
     private String username;
 
-    @NotEmpty(message = "Campo senha é obrigstório")
+    @NotEmpty(message = "Campo senha é obrigatório")
     private String password;
 }
