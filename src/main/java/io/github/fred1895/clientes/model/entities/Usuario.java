@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
@@ -15,7 +16,9 @@ public class Usuario {
     private Long id;
 
     @Column(unique = true)
+    @NotEmpty(message = "Campo login é obrigstório")
     private String username;
 
+    @NotEmpty(message = "Campo senha é obrigstório")
     private String password;
 }
